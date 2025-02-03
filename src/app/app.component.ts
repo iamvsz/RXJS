@@ -10,9 +10,7 @@ export class AppComponent implements OnInit {
   title = 'Observable';
 
   ngOnInit(): void {
-    const array1 = [1, 2, 3, 4, 5];
-    const array2 = [6, 7, 8, 9, 10];
-    const obs = of(array1, array2);
+    const obs = of(1,2, 3, 4, 5);
 
 
     obs.subscribe({
