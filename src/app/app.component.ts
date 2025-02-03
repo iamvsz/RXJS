@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -10,13 +10,9 @@ export class AppComponent implements OnInit {
   title = 'Observable';
 
   ngOnInit(): void {
-    const obs =  Observable.create((observer: { next: (arg0: string) => any; complete: () => any; }) => {
-      observer.next('1'),
-        observer.next('2'),
-        observer.next('3'),
-
-        observer.complete()
-    })
+    const array1 = [1, 2, 3, 4, 5];
+    const array2 = [6, 7, 8, 9, 10];
+    const obs = of(array1, array2);
 
 
     obs.subscribe({
