@@ -10,7 +10,7 @@ export class AppComponent implements OnInit {
   title = 'Observable';
 
   ngOnInit(): void {
-    const obs =  new  Observable (observer => {
+    const obs =  Observable.create((observer: { next: (arg0: string) => any; complete: () => any; }) => {
       observer.next('1'),
         observer.next('2'),
         observer.next('3'),
@@ -20,8 +20,8 @@ export class AppComponent implements OnInit {
 
 
     obs.subscribe({
-      next: x => console.log(x),
-      error: err => console.error('something wrong occurred: ' + err),
+      next: (x: any) => console.log(x),
+      error: (err: string) => console.error('something wrong occurred: ' + err),
       complete: () => console.log('done'),
     });
   }
